@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Occupational Overview</title>
+        <meta charset="utf-8">
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js" crossorigin="anonymous"></script>
+        <script src="./js/index.js"></script>
+    </head>
+    <body class="bg-light">
+        <div class="container mt-3 p-4 bg-white">
+            <div class="fs-3">Occupational Overview</div>
+            <div id="subtitle" class="pb-2"></div>
+            <div id="summaryTitle" class="fw-bold"></div>
+            <div class="row text-center pb-3">
+                <div class="col border-top border-bottom pb-3">
+                    <div id="regionalTotalJobs" class="fs-1"></div>
+                    <div id="regionalJobYear" class="fw-bold"></div>
+                    <div id="regionalComparison"></div>
+                </div>
+                <div class="col border pb-3">
+                    <div id="regionalChange" class="fs-1"></div>
+                    <div id="regionalChangeLabel" class="fw-bold"></div>
+                    <div id="nationalChange"></div>
+                </div>
+                <div class="col border-top border-bottom pb-3">
+                    <div id="regionalEarnings" class="fs-1"></div>
+                    <div class="fw-bold">Median Hourly Earnings</div>
+                    <div id="nationalEarnings"></div>
+                </div>
+            </div>
+            <div class="fs-4">Regional Trends</div>
+            <hr>
+            <canvas id="chart"></canvas>
+            <table class="table">
+                <thead>
+                    <tr class="">
+                        <th></th>
+                        <th class="w-50">Region</th>
+                        <th id="startYearJobs" class="text-end"></th>
+                        <th id="endYearJobs" class="text-end"></th>
+                        <th id="changeInJobs" class="text-end">Change</th>
+                        <th id="%ChangeInJobs" class="text-end">% Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:#359">◆</td>
+                        <td>Region</td>
+                        <td id="regionalStartYearJobs" class="text-end"></td>
+                        <td id="regionalEndYearJobs" class="text-end"></td>
+                        <td id="regionalChangeInJobs" class="text-end"></td>
+                        <td id="regional%ChangeInJobs" class="text-end"></td>
+                    </tr>
+                    <tr>
+                        <td style="color:#68C">■</td>
+                        <td>State</td>
+                        <td id="stateStartYearJobs" class="text-end"></td>
+                        <td id="stateEndYearJobs" class="text-end"></td>
+                        <td id="stateChangeInJobs" class="text-end"></td>
+                        <td id="state%ChangeInJobs" class="text-end"></td>
+                    </tr>
+                    <tr>
+                        <td style="color:#9BF">▲</td>
+                        <td>Nation</td>
+                        <td id="nationalStartYearJobs" class="text-end"></td>
+                        <td id="nationalEndYearJobs" class="text-end"></td>
+                        <td id="nationalChangeInJobs" class="text-end"></td>
+                        <td id="national%ChangeInJobs" class="text-end"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="industryTitle" class="fs-4"></div>
+            <hr/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="w-50">Industry</th>
+                        <th class="text-end industry-add-year">Occupation Jobs in Industry</th>
+                        <th class="text-end industry-add-year">% of Occupation in Industry</th>
+                        <th class="text-end industry-add-year">% of Total Jobs in Industry</th>
+                    </tr>
+                </thead>
+                <tbody id="industryTable">
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
