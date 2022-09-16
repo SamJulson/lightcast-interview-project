@@ -87,6 +87,23 @@ function loadResponse(resp) {
                     borderColor: "#9BF"
                 }
             ]
+        },
+        options: {
+            scales: {
+                y: {
+                    min: -20,
+                    max: 70,
+                    title: {
+                        display: true,
+                        text: 'Percentage Change'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
         }
     });
 
@@ -135,6 +152,10 @@ function loadResponse(resp) {
     // Industries Table
     document.getElementById("industryTitle").innerHTML =
         "Industries Employing " + resp.occupation.title;
+
+    for (let e of document.getElementsByClassName("industry-add-year")) {
+        e.innerHTML += ` (${resp.employing_industries.year})`
+    }
 
     for (const r of resp.employing_industries.industries) {
         const percentOfTotalJobs = (r.in_occupation_jobs / resp.employing_industries.jobs * 100).toFixed(1)
